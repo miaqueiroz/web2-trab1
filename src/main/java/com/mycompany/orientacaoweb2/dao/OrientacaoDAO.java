@@ -32,24 +32,27 @@ public class OrientacaoDAO {
     }
     
     public ArrayList<Orientacao> listar(String nome) throws Exception{
-        PreparedStatement ps = con.prepareStatement("SELECT professor.*, orientacao.* FROM orientacao INNER JOIN professor ON "
-                + "orientacao.idProfessorOrientacao = professor.idProfessor WHERE professor.nomeProfessor LIKE'%"+nome+"%'");
+        PreparedStatement ps = con.prepareStatement("SELECT professor.*, orientacao.* FROM orientacao INNER JOIN professor ON orientacao.idProfessorOrientacao = professor.idProfessor WHERE professor.nomeProfessor LIKE ?");
+        
+        ps.setString(1, "%" + nome + "%");
         
         ResultSet rs = ps.executeQuery();
         ArrayList<Orientacao> oriArray = new ArrayList<>();
-        Orientacao orientacao;       
+        Orientacao orientacao = new Orientacao();       
         
-            while(rs.next()){
-                orientacao = new Orientacao();
+        while(rs.next()){
+            orientacao = new Orientacao();
 
-                orientacao.setIdOrientacao(rs.getInt("idOrientacao"));
-                orientacao.setDescricaoOrientacao(rs.getString("descricaoOrientacao"));
-                orientacao.setOrientadoOrientacao(rs.getString("orientadoOrientacao"));
-                orientacao.getProfessor().setIdProfessor(rs.getInt("idProfessor"));
-                orientacao.getProfessor().setNomeProfessor(rs.getString("nomeProfessor"));
-            }   
+            orientacao.setIdOrientacao(rs.getInt("idOrientacao"));
+            orientacao.setDescricaoOrientacao(rs.getString("descricaoOrientacao"));
+            orientacao.setOrientadoOrientacao(rs.getString("orientadoOrientacao"));
+            orientacao.getProfessor().setIdProfessor(rs.getInt("idProfessor"));
+            orientacao.getProfessor().setNomeProfessor(rs.getString("nomeProfessor"));
+        }   
+        
+        System.out.println(orientacao.getDescricaoOrientacao());
 
-            rs.close();
-            return oriArray.size() > 0 ? oriArray : null;
+        rs.close();
+        return oriArray.size() > 0 ? oriArray : null;
     }
 }
