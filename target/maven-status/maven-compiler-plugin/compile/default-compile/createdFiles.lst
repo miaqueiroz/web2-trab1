@@ -1,0 +1,14 @@
+com\mycompany\orientacaoweb2\dao\UsuarioDAO.class
+com\mycompany\orientacaoweb2\dao\OrientacaoDAO.class
+com\mycompany\orientacaoweb2\LogoutServlet.class
+com\mycompany\orientacaoweb2\dao\Conexao.class
+com\mycompany\orientacaoweb2\PaginaInicialServlet.class
+com\mycompany\orientacaoweb2\LoginServlet.class
+com\mycompany\orientacaoweb2\dao\ProfessorDAO.class
+com\mycompany\orientacaoweb2\model\Orientacao.class
+com\mycompany\orientacaoweb2\model\Usuario.class
+com\mycompany\orientacaoweb2\ProfessorServet.class
+com\mycompany\orientacaoweb2\ListagemServlet.class
+com\mycompany\orientacaoweb2\model\Professor.class
+com\mycompany\orientacaoweb2\OrientacaoServlet.class
+com\mycompany\orientacaoweb2\ProfileServlet.class
