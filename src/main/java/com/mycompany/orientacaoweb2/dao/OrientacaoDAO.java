@@ -24,21 +24,21 @@ public class OrientacaoDAO {
     }
     
     public void inserir(Orientacao orientacao) throws Exception{
-                pst = con.prepareStatement("insert into orientacao (descricaoOrientacao, orientadoOrientacao, idProfessorOrientacao) VALUES (?, ?, ?);");
-                pst.setString(1, orientacao.getDescricaoOrientacao());
-                pst.setString(2, orientacao.getOrientadoOrientacao());
-                pst.setInt(3, orientacao.getProfessor().getIdProfessor());
-                pst.execute();
+        pst = con.prepareStatement("insert into orientacao (descricaoOrientacao, orientadoOrientacao, idProfessorOrientacao) VALUES (?, ?, ?);");
+        pst.setString(1, orientacao.getDescricaoOrientacao());
+        pst.setString(2, orientacao.getOrientadoOrientacao());
+        pst.setInt(3, orientacao.getProfessor().getIdProfessor());
+        pst.execute();
     }
     
     public ArrayList<Orientacao> listar(String nome) throws Exception{
-        PreparedStatement ps = con.prepareStatement("SELECT professor.*, orientacao.* FROM orientacao INNER JOIN professor ON orientacao.idProfessorOrientacao = professor.idProfessor WHERE professor.nomeProfessor LIKE ?");
+        PreparedStatement ps = con.prepareStatement("SELECT professor.*, orientacao.* FROM orientacao INNER JOIN professor ON orientacao.idProfessorOrientacao = professor.idProfessor WHERE professor.nomeProfessor LIKE ?;");
         
         ps.setString(1, "%" + nome + "%");
         
         ResultSet rs = ps.executeQuery();
         ArrayList<Orientacao> oriArray = new ArrayList<>();
-        Orientacao orientacao = new Orientacao();       
+        Orientacao orientacao;       
         
         while(rs.next()){
             orientacao = new Orientacao();
@@ -48,10 +48,10 @@ public class OrientacaoDAO {
             orientacao.setOrientadoOrientacao(rs.getString("orientadoOrientacao"));
             orientacao.getProfessor().setIdProfessor(rs.getInt("idProfessor"));
             orientacao.getProfessor().setNomeProfessor(rs.getString("nomeProfessor"));
+
+            oriArray.add(orientacao);   
         }   
         
-        System.out.println(orientacao.getDescricaoOrientacao());
-
         rs.close();
         return oriArray.size() > 0 ? oriArray : null;
     }
