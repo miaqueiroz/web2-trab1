@@ -8,13 +8,13 @@
 </head>
 <body>
     <input type='checkbox' id='form-switch'>
-    <form id='login-form' action="login" method='post'>
+    <form id='login-form' action="Login" method='post'>
       <input type="text" name="email" placeholder="Email" required>
       <input type="password" name="senha" placeholder="Senha" required>
       <button type='submit'>Logar</button>
       <label for='form-switch'><span>Cadastrar</span></label>
     </form>
-    <form id='register-form' action="usuario" method='post'>
+    <form id='register-form' action="Perfil" method='post'>
       <input type="text" name="c_nome" placeholder="Nome" required>
       <input type="email" name="c_email" placeholder="Email" required>
       <input type="password" name="c_senha" placeholder="Senha" required>

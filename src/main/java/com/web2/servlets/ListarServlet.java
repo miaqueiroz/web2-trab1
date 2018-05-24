@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.web2.model.Orientacao;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = "/lista")
+@WebServlet(urlPatterns = "/Listar")
 public class ListarServlet extends HttpServlet {
     
     OrientacaoDAO oriDao = new OrientacaoDAO();
@@ -36,6 +36,6 @@ public class ListarServlet extends HttpServlet {
         }
              
         request.setAttribute("orientacoes", arrays);
-        request.getRequestDispatcher("lista.jsp").forward(request, response);
+        request.getRequestDispatcher("listar.jsp").forward(request, response);
     }
 }

@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="topnav">
-        <a class="active" href="cdProfServlet">Cadastrar Professor</a>
-        <a href="CadOrientacao">Cadastrar Orientação</a>
-        <a href="lista">Listar </a>
-        <a href="logout">Sair</a>
+        <a class="active" href="ProfessorServlet">Cadastrar Professor</a>
+        <a href="OrientacaoServlet">Cadastrar Orientação</a>
+        <a href="ListarServlet">Listar </a>
+        <a href="LogoutServlet">Sair</a>
     </div>
 </body>
 </html>

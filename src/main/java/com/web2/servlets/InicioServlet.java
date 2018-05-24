@@ -15,7 +15,7 @@ public class InicioServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.getAttribute("nome");
         if(session.getAttribute("nome") == null) {
-            response.sendRedirect("/login");
+            response.sendRedirect("/Login");
             return;
         }
        

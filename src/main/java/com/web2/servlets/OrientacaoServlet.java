@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "CadOrientacao", urlPatterns = {"/CadOrientacao"})
+@WebServlet(urlPatterns = {"/Orientacao"})
 public class OrientacaoServlet extends HttpServlet {
     
     OrientacaoDAO oriDao = new OrientacaoDAO(); 
@@ -39,7 +39,7 @@ public class OrientacaoServlet extends HttpServlet {
         }
           
         request.setAttribute("objetoRecebido", prof);
-        request.getRequestDispatcher("CadastroOrientacao.jsp").forward(request, response);  
+        request.getRequestDispatcher("orientacao.jsp").forward(request, response);  
     }
     
      protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -59,7 +59,7 @@ public class OrientacaoServlet extends HttpServlet {
             Logger.getLogger(OrientacaoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         request.setAttribute("msgSucesso", msg);
-        request.getRequestDispatcher("CadastroOrientacao.jsp").forward(request, response); 
+        request.getRequestDispatcher("orientacao.jsp").forward(request, response); 
  
      }
 }

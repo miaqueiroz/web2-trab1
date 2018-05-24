@@ -50,7 +50,7 @@ public class ProfessorServet extends HttpServlet {
         }
         
         request.setAttribute("msgSucesso", msg);
-        request.getRequestDispatcher("cadastroProfessor.jsp").forward(request, response);
+        request.getRequestDispatcher("professor.jsp").forward(request, response);
 
     }
 }

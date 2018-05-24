@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = "/usuario")
+@WebServlet(urlPatterns = "/Perfil")
 public class PerfilServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)  
